@@ -22,7 +22,6 @@
 		"tasks": [
 			{
 				"label": "build (release)",
-				"type": "cppbuild",
 				"group": "build",
 				"command": "c:/users/viann/vscode/dev-tools/mingw/bin/g++.exe",
 				"args": [
@@ -33,11 +32,19 @@
 					"-I",
 					"${workspaceFolder}/include"
 				],
-				"problemMatcher": "$gcc"
+				"problemMatcher": "$gcc",
+				"presentation": {
+					"echo": true,
+					"reveal": "never",
+					"focus": false,
+					"panel": "shared",
+					"showReuseMessage": false,
+					"clear": true,
+					"close": true
+				}
 			},
 			{
 				"label": "build (debug)",
-				"type": "cppbuild",
 				"group": "build",
 				"command": "c:/users/viann/vscode/dev-tools/mingw/bin/g++.exe",
 				"args": [
@@ -48,7 +55,16 @@
 					"-I",
 					"${workspaceFolder}/include"
 				],
-				"problemMatcher": "$gcc"
+				"problemMatcher": "$gcc",
+				"presentation": {
+					"echo": true,
+					"reveal": "never",
+					"focus": false,
+					"panel": "shared",
+					"showReuseMessage": false,
+					"clear": true,
+					"close": true
+				}
 			}
 		]
 	},
