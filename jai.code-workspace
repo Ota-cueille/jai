@@ -13,8 +13,8 @@
 			"name": "inc"
 		},
 		{
-			"path": ".vscode",
-			"name": "config"
+			"path": "assets",
+			"name": "assets"
 		}
 	],
 	"tasks": {
