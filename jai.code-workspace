@@ -28,9 +28,9 @@
 					"-O2",
 					"-o",
 					"build/release/${workspaceFolderBasename}.exe",
-					"${workspaceFolder}/source/*.cpp",
+					"${workspaceFolder:root}/source/*.cpp",
 					"-I",
-					"${workspaceFolder}/include"
+					"${workspaceFolder:root}/include"
 				],
 				"problemMatcher": "$gcc",
 				"presentation": {
@@ -51,9 +51,9 @@
 					"-g",
 					"-o",
 					"build/debug/${workspaceFolderBasename}-dbg.exe",
-					"${workspaceFolder}/source/*.cpp",
+					"${workspaceFolder:root}/source/*.cpp",
 					"-I",
-					"${workspaceFolder}/include"
+					"${workspaceFolder:root}/include"
 				],
 				"problemMatcher": "$gcc",
 				"presentation": {
@@ -65,6 +65,23 @@
 					"clear": true,
 					"close": true
 				}
+			},
+			{
+				"label": "run",
+				"group": "none",
+				"command": "${workspaceFolder:root}/build/release/${workspaceFolderBasename}.exe",
+				"args": [
+					"assets/main.jai"
+				],
+				"presentation": {
+					"echo": true,
+					"reveal": "never",
+					"focus": true,
+					"panel": "shared",
+					"showReuseMessage": false,
+					"clear": true
+				},
+				"problemMatcher": []
 			}
 		]
 	},
@@ -75,9 +92,12 @@
 				"name": "lanch debug",
 				"type": "cppdbg",
 				"request": "launch",
-				"program": "${workspaceFolder}/build/debug/${workspaceFolderBasename}-dbg.exe",
+				"program": "${workspaceFolder:root}/build/debug/${workspaceFolderBasename:root}-dbg.exe",
+				"args": [
+					"assets/main.jai"
+				],
 				"MIMode": "gdb",
-				"cwd": "${workspaceFolder}",
+				"cwd": "${workspaceFolder:root}",
 				"miDebuggerPath": "c:/users/viann/vscode/dev-tools/mingw/bin/gdb.exe",
 				"preLaunchTask": "build (debug)",
 				"setupCommands": [
