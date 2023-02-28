@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include <cstring>
 
+#include "lexer.hpp"
+
 int main(int ac, char *av[])
 {
 	const char *filename;
@@ -26,6 +28,8 @@ int main(int ac, char *av[])
 	fread(buffer, sizeof(char), file_size, source_file);
 
 	printf(buffer);
+
+	// parse file
 
 	fclose(source_file);
 	free(buffer);
