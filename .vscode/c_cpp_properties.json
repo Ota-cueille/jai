@@ -1,0 +1,14 @@
+{
+	"configurations": [
+		{
+			"name": "windows",
+			"compilerPath": "c:/users/viann/vscode/dev-tools/mingw/bin/g++.exe",
+			"intelliSenseMode": "windows-gcc-x64",
+			"cppStandard": "c++23",
+			"includePath": [
+				"${workspaceFolder}/include"
+			]
+		}
+	],
+	"version": 4
+}

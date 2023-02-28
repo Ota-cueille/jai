@@ -2,15 +2,7 @@
 	"folders": [
 		{
 			"path": ".",
-			"name": "root"
-		},
-		{
-			"path": "source",
-			"name": "src"
-		},
-		{
-			"path": "include",
-			"name": "inc"
+			"name": "jai"
 		},
 		{
 			"path": "assets",
@@ -27,10 +19,10 @@
 				"args": [
 					"-O2",
 					"-o",
-					"build/release/${workspaceFolderBasename}.exe",
-					"${workspaceFolder:root}/source/*.cpp",
+					"build/release/${workspaceFolderBasename:jai}.exe",
+					"${workspaceFolder:jai}/source/*.cpp",
 					"-I",
-					"${workspaceFolder:root}/include"
+					"${workspaceFolder:jai}/include"
 				],
 				"problemMatcher": "$gcc",
 				"presentation": {
@@ -50,10 +42,10 @@
 				"args": [
 					"-g",
 					"-o",
-					"build/debug/${workspaceFolderBasename}-dbg.exe",
-					"${workspaceFolder:root}/source/*.cpp",
+					"build/debug/${workspaceFolderBasename:jai}-dbg.exe",
+					"${workspaceFolder:jai}/source/*.cpp",
 					"-I",
-					"${workspaceFolder:root}/include"
+					"${workspaceFolder:jai}/include"
 				],
 				"problemMatcher": "$gcc",
 				"presentation": {
@@ -69,7 +61,7 @@
 			{
 				"label": "run",
 				"group": "none",
-				"command": "${workspaceFolder:root}/build/release/${workspaceFolderBasename}.exe",
+				"command": "${workspaceFolder:jai}/build/release/${workspaceFolderBasename:jai}.exe",
 				"args": [
 					"assets/main.jai"
 				],
@@ -92,12 +84,12 @@
 				"name": "lanch debug",
 				"type": "cppdbg",
 				"request": "launch",
-				"program": "${workspaceFolder:root}/build/debug/${workspaceFolderBasename:root}-dbg.exe",
+				"program": "${workspaceFolder:jai}/build/debug/${workspaceFolderBasename:jai}-dbg.exe",
 				"args": [
 					"assets/main.jai"
 				],
 				"MIMode": "gdb",
-				"cwd": "${workspaceFolder:root}",
+				"cwd": "${workspaceFolder:jai}",
 				"miDebuggerPath": "c:/users/viann/vscode/dev-tools/mingw/bin/gdb.exe",
 				"preLaunchTask": "build (debug)",
 				"setupCommands": [
@@ -115,5 +107,15 @@
 			}
 		],
 		"compounds": []
+	},
+	"settings": {
+		"files.associations": {
+			"array": "cpp",
+			"compare": "cpp",
+			"functional": "cpp",
+			"tuple": "cpp",
+			"type_traits": "cpp",
+			"utility": "cpp"
+		}
 	}
 }
