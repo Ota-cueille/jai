@@ -8,14 +8,15 @@ namespace lexer
 {
 	enum class token_type
 	{
-		none,
+		whitespaces,
 		lparen,
 		rparen,
-		identifier,
 		integer_literal,
 		decimal_literal,
 		string_literal,
-		count,
+		identifier,
+		none,
+		count = none,
 	};
 
 	bool operator<(uint64_t i, token_type t);
@@ -47,6 +48,7 @@ namespace lexer
 
 	extern token lookahead;
 
+	void set_translation(const char *filepath);
 	token eat(token_type t);
 
 } // namespace lexer
