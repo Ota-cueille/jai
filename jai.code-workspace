@@ -86,7 +86,7 @@
 				"request": "launch",
 				"program": "${workspaceFolder:jai}/build/debug/${workspaceFolderBasename:jai}-dbg.exe",
 				"args": [
-					"assets/main.jai"
+					"assets/test1.jai"
 				],
 				"MIMode": "gdb",
 				"cwd": "${workspaceFolder:jai}",
@@ -115,7 +115,8 @@
 			"functional": "cpp",
 			"tuple": "cpp",
 			"type_traits": "cpp",
-			"utility": "cpp"
+			"utility": "cpp",
+			"string_view": "cpp"
 		}
 	}
 }
