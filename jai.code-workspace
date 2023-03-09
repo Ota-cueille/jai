@@ -7,6 +7,14 @@
 		{
 			"path": "assets",
 			"name": "assets"
+		},
+		{
+			"name": "src",
+			"path": "source"
+		},
+		{
+			"name": "inc",
+			"path": "include"
 		}
 	],
 	"tasks": {
@@ -63,7 +71,7 @@
 				"group": "none",
 				"command": "${workspaceFolder:jai}/build/release/${workspaceFolderBasename:jai}.exe",
 				"args": [
-					"assets/main.jai"
+					"assets/test_expression.jai"
 				],
 				"presentation": {
 					"echo": true,
@@ -86,7 +94,7 @@
 				"request": "launch",
 				"program": "${workspaceFolder:jai}/build/debug/${workspaceFolderBasename:jai}-dbg.exe",
 				"args": [
-					"assets/test1.jai"
+					"assets/test_expression.jai"
 				],
 				"MIMode": "gdb",
 				"cwd": "${workspaceFolder:jai}",
