@@ -6,6 +6,8 @@
 #include <regex>
 #include <string>
 
+#define SKIP_WHITESPACES true
+
 extern std::array<std::regex, size_t(lexer::token_type::count)> token_regex;
 
 namespace lexer
@@ -29,15 +31,28 @@ namespace lexer
 		};
 
 		std::smatch match;
-		std::string sv(&translation.content[translation.curr]);
+		std::string substr(&translation.content[translation.curr]);
+
+#if SKIP_WHITESPACES == true
+
+		if (std::regex_search(substr, match, token_regex[uint64_t(token_type::whitespaces)]))
+		{
+			tok.type = token_type::whitespaces;
+			tok.value = match[0].str();
+			translation.curr += match[0].length();
+		}
+
+#endif
+
+		substr = std::string(&translation.content[translation.curr]);
 
 		for (token_type t = token_type::whitespaces; t != token_type::none; t = token_type(uint64_t(t) + 1))
 		{
-			if (std::regex_search(sv, match, token_regex[uint64_t(t)]))
+			if (std::regex_search(substr, match, token_regex[uint64_t(t)]))
 			{
 				tok.type = t;
 				tok.value = match[0].str();
-				printf("tok(type: %d): %s\n", tok.type, tok.value.c_str());
+				// printf("tok(type: %d): %s\n", tok.type, tok.value.c_str());
 
 				translation.curr += match[0].length();
 			}
@@ -181,7 +196,9 @@ namespace lexer
 std::array<std::regex, size_t(lexer::token_type::count)> token_regex = {
 	std::regex(R"(^(\s+))"),						 // whitespaces
 	std::regex(R"(^(\())"),							 // lparen
-	std::regex(R"(^(\)))"),							 // lparen
+	std::regex(R"(^(\)))"),							 // rparen
+	std::regex(R"(^(\+))"),							 // add_symbol
+	std::regex(R"(^(-))"),							 // sub_symbol
 	std::regex(R"(^(\d+))"),						 // integer_literal
 	std::regex(R"(^((\d+\.\d*?)|(\d*\.\d+)))"),		 // decimal_literal
 	std::regex(R"(^(".*?"))"),						 // string_literal
