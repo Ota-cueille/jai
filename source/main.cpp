@@ -4,6 +4,7 @@
 #include <cstring>
 
 #include "lexer.hpp"
+#include "parser.hpp"
 
 int main(int ac, char *av[])
 {
@@ -19,8 +20,14 @@ int main(int ac, char *av[])
 	}
 
 	// parse file
-	while (lexer::lookahead.type != lexer::token_type::none)
-		lexer::eat(lexer::lookahead.type);
+	// while (lexer::lookahead.type != lexer::token_type::none)
+	// 	lexer::eat(lexer::lookahead.type);
+
+	// test 4 expressions in test_expression.jai
+	parser::expression();
+	parser::expression();
+	parser::expression();
+	parser::expression();
 
 	return 0;
 }
