@@ -11,6 +11,8 @@ namespace lexer
 		whitespaces,
 		lparen,
 		rparen,
+		add_symbol,
+		sub_symbol,
 		integer_literal,
 		decimal_literal,
 		string_literal,
